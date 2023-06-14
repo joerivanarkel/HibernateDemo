@@ -2,50 +2,34 @@ package com.hibernateexample;
 
 import java.util.List;
 
+import com.hibernateexample.repositories.StudentRepository;
 
-import com.hibernateexample.models.Employee;
-import com.hibernateexample.models.Department;
-import com.hibernateexample.util.*;
-
-import org.hibernate.*;
-
-import org.hibernate.query.Query;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class App {
-    private static final Logger logger = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args) {
 
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        StudentRepository studentRepository = new StudentRepository();
 
-        session.beginTransaction();
+        // test saveStudent
+        Student student = new Student("Ramesh", "Fadatare", "ramesh@gmail.com");
+        studentRepository.save(student);
 
-        Department department = new Department("java");
-        session.save(department);
+        // test updateStudent
+        // student.setFirstName("Ram");
+        // studentRepository.update(student);
 
-        session.save(new Employee("Jakab Gipsz", department));
-        session.save(new Employee("Captain Nemo", department));
+        // // test getStudentById
+        // Student student2 = studentRepository.getById(student.getId());
 
-        session.getTransaction().commit();
+        // test getAllStudents
+        // List < Student > students = studentRepository.getAll();
+        // for (Student student1: students) {
+        //     System.out.println(student1.getFirstName());
+        // }
 
-        Query q = session.createQuery("From Employee ");
-
-        List<Employee> resultList = q.list();
-        logger.debug("num of employess:" + resultList.size());
-        if (resultList.size() == 0)
-        {
-            logger.debug("No employees found");
-        } else
-        {
-            logger.debug("Employees found");
-            for (Employee next : resultList)
-            {
-                logger.debug("next employee: " + next);
-            }
-        }
+        // test deleteStudent
+        studentRepository.delete(student.getId());
 
     }
-
 }
