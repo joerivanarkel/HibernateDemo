@@ -5,7 +5,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.hibernateexample.Student;
+import com.hibernateexample.model.Student;
 import com.hibernateexample.util.HibernateUtil;
 
 public class BaseRepository<T> implements IRepository<T> {

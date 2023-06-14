@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
-import com.hibernateexample.Student;
+import com.hibernateexample.model.Student;
 
 public class HibernateUtil {
     private static SessionFactory sessionFactory;

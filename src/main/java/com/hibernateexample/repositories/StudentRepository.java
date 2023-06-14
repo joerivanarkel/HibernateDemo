@@ -1,6 +1,6 @@
 package com.hibernateexample.repositories;
 
-import com.hibernateexample.Student;
+import com.hibernateexample.model.Student;
 
 public class StudentRepository extends BaseRepository<Student> {
 

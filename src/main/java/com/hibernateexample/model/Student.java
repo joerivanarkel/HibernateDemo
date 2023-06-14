@@ -1,4 +1,4 @@
-package com.hibernateexample;
+package com.hibernateexample.model;
 
 import jakarta.persistence.*;
 

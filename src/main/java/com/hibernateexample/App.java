@@ -2,6 +2,7 @@ package com.hibernateexample;
 
 import java.util.List;
 
+import com.hibernateexample.model.Student;
 import com.hibernateexample.repositories.StudentRepository;
 
 
